@@ -29,6 +29,17 @@ const StudentCare = lazy(() => import("./pages/academics/StudentCare"));
 const Faculty = lazy(() => import("./pages/academics/Faculty"));
 
 const AdmissionProcess = lazy(() => import("./pages/admissions/AdmissionProcess"));
+
+// Media pages
+const Gallery = lazy(() => import("./pages/media/Gallery"));
+const VideoGallery = lazy(() => import("./pages/media/VideoGallery"));
+const Awards = lazy(() => import("./pages/media/Awards"));
+const Testimonials = lazy(() => import("./pages/media/Testimonials"));
+const YearBooks = lazy(() => import("./pages/media/YearBooks"));
+const Dipscoop = lazy(() => import("./pages/media/Dipscoop"));
+const LittleLearnersLounge = lazy(() => import("./pages/media/LittleLearnersLounge"));
+const Loquacity = lazy(() => import("./pages/media/Loquacity"));
+
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 
 const queryClient = new QueryClient();
@@ -71,6 +82,16 @@ const App = () => (
 
               {/* Admissions */}
               <Route path="/admission-process" element={<AdmissionProcess />} />
+
+              {/* Media */}
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/video-gallery" element={<VideoGallery />} />
+              <Route path="/sports-awards-acheivement" element={<Awards />} />
+              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/year-book" element={<YearBooks />} />
+              <Route path="/dipscoop" element={<Dipscoop />} />
+              <Route path="/little-learners-lounge" element={<LittleLearnersLounge />} />
+              <Route path="/loquacity" element={<Loquacity />} />
 
               {/* Contact */}
               <Route path="/contact-us" element={<ContactUs />} />

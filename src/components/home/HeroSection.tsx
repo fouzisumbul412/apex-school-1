@@ -90,19 +90,19 @@ export const HeroSection = () => {
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image Slider */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
           className="absolute inset-0 z-0"
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: 'easeInOut' }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
           <img
             src={currentSlideData.image}
             alt={currentSlideData.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-dps-green-dark/95 via-dps-green/75 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-dps-green-dark/60 via-transparent to-transparent" />
