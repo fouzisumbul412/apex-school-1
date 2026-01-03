@@ -1,6 +1,8 @@
 import { HeroSection } from '@/components/home/HeroSection';
+import { WelcomeSection } from '@/components/home/WelcomeSection';
 import { StatsSection } from '@/components/home/StatsSection';
 import { CampusLifeSection } from '@/components/home/CampusLifeSection';
+import { CampusSlider } from '@/components/home/CampusSlider';
 import { PrincipalMessageSection } from '@/components/home/PrincipalMessageSection';
 import { NewsSection } from '@/components/home/NewsSection';
 import { AchievementsSection } from '@/components/home/AchievementsSection';
@@ -11,8 +13,10 @@ const Index = () => {
   return (
     <>
       <HeroSection />
+      <WelcomeSection />
       <StatsSection />
       <CampusLifeSection />
+      <CampusSlider />
       <PrincipalMessageSection />
       <NewsSection />
       <AchievementsSection />

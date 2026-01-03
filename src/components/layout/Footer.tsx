@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowUp } from 'lucide-react';
+import { 
+  Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin, 
+  ArrowUp, Send, Clock, Globe, Heart, GraduationCap, Award
+} from 'lucide-react';
 import { footerLinks, socialLinks, contactInfo } from '@/config/navigation';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 const socialIconMap: Record<string, React.ReactNode> = {
   Facebook: <Facebook className="w-5 h-5" />,
@@ -13,16 +17,52 @@ const socialIconMap: Record<string, React.ReactNode> = {
 };
 
 export const Footer = () => {
+  const [email, setEmail] = useState('');
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    setEmail('');
+  };
+
   return (
-    <footer className="relative bg-gradient-dark text-primary-foreground">
+    <footer className="relative bg-gradient-to-b from-dps-green-dark via-primary to-dps-green-dark text-primary-foreground overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-40 right-20 w-96 h-96 bg-dps-teal/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 0.8, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        {/* Floating Icons */}
+        <motion.div
+          className="absolute top-32 right-1/4"
+          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        >
+          <GraduationCap className="w-8 h-8 text-secondary/20" />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-40 left-1/4"
+          animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }}
+          transition={{ duration: 7, repeat: Infinity }}
+        >
+          <Award className="w-6 h-6 text-secondary/20" />
+        </motion.div>
+      </div>
+
       {/* Wave Separator */}
       <div className="absolute -top-1 left-0 w-full overflow-hidden leading-none rotate-180">
         <svg
-          className="relative block w-full h-16"
+          className="relative block w-full h-20 md:h-24"
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
@@ -33,32 +73,83 @@ export const Footer = () => {
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 pt-24 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      {/* Newsletter Section */}
+      <div className="container mx-auto px-4 pt-32 pb-12">
+        <motion.div
+          className="relative bg-gradient-to-r from-secondary/20 to-dps-gold/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-16 border border-secondary/20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold mb-3">
+                Stay Updated with <span className="text-secondary">DPS Hyderabad</span>
+              </h3>
+              <p className="text-primary-foreground/70">
+                Subscribe to our newsletter for latest news, events, and announcements.
+              </p>
+            </div>
+            <form onSubmit={handleSubscribe} className="flex gap-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-secondary transition-colors"
+                required
+              />
+              <Button type="submit" variant="gold" size="lg" className="px-6">
+                <Send className="w-5 h-5" />
+              </Button>
+            </form>
+          </div>
+        </motion.div>
+
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Section */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-14 h-14 rounded-full bg-gradient-gold flex items-center justify-center text-secondary-foreground font-heading font-bold text-xl shadow-gold">
-                DPS
+          <div className="lg:col-span-2">
+            <motion.div
+              className="flex items-center gap-4 mb-6"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center text-secondary-foreground font-heading font-bold text-2xl shadow-gold">
+                  DPS
+                </div>
+                <motion.div
+                  className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
               </div>
               <div>
-                <h3 className="font-heading font-bold text-xl">Delhi Public School</h3>
-                <p className="text-primary-foreground/70 text-sm">Hyderabad</p>
+                <h3 className="font-heading font-bold text-2xl">Delhi Public School</h3>
+                <p className="text-primary-foreground/70">Hyderabad</p>
               </div>
-            </div>
-            <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-              Nurturing future leaders through academic excellence, holistic development, and a commitment to values that inspire lifelong learning.
+            </motion.div>
+            <p className="text-primary-foreground/80 mb-6 leading-relaxed max-w-md">
+              Nurturing future leaders through academic excellence, holistic development, and a commitment to values that inspire lifelong learning. Celebrating 23 years of educational excellence.
             </p>
+            
+            {/* Social Links */}
             <div className="flex gap-3">
-              {socialLinks.map((social) => (
+              {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                  className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-all border border-white/10 hover:border-secondary"
                   aria-label={social.label}
                 >
                   {socialIconMap[social.icon]}
@@ -69,83 +160,135 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6">Quick Links</h4>
+            <h4 className="font-heading font-semibold text-lg mb-6 flex items-center gap-2">
+              <Globe className="w-5 h-5 text-secondary" />
+              Quick Links
+            </h4>
             <ul className="space-y-3">
-              {footerLinks.quickLinks.map((link) => (
-                <li key={link.label}>
+              {footerLinks.quickLinks.map((link, index) => (
+                <motion.li
+                  key={link.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
                   <Link
                     to={link.href}
-                    className="text-primary-foreground/70 hover:text-secondary transition-colors link-underline"
+                    className="text-primary-foreground/70 hover:text-secondary transition-colors flex items-center gap-2 group"
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary/50 group-hover:bg-secondary transition-colors" />
                     {link.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6">Resources</h4>
+            <h4 className="font-heading font-semibold text-lg mb-6 flex items-center gap-2">
+              <Award className="w-5 h-5 text-secondary" />
+              Resources
+            </h4>
             <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
+              {footerLinks.resources.map((link, index) => (
+                <motion.li
+                  key={link.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                >
                   <Link
                     to={link.href}
-                    className="text-primary-foreground/70 hover:text-secondary transition-colors link-underline"
+                    className="text-primary-foreground/70 hover:text-secondary transition-colors flex items-center gap-2 group"
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary/50 group-hover:bg-secondary transition-colors" />
                     {link.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading font-semibold text-lg mb-6">Contact Us</h4>
+            <h4 className="font-heading font-semibold text-lg mb-6 flex items-center gap-2">
+              <Phone className="w-5 h-5 text-secondary" />
+              Contact Us
+            </h4>
             <ul className="space-y-4">
-              <li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
                 <a
                   href={`tel:${contactInfo.phone}`}
                   className="flex items-start gap-3 text-primary-foreground/70 hover:text-secondary transition-colors group"
                 >
-                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:text-secondary" />
+                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70 group-hover:text-secondary" />
                   <span>{contactInfo.phone}</span>
                 </a>
-              </li>
-              <li>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="flex items-start gap-3 text-primary-foreground/70 hover:text-secondary transition-colors group"
                 >
-                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:text-secondary" />
+                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70 group-hover:text-secondary" />
                   <span>{contactInfo.email}</span>
                 </a>
-              </li>
-              <li className="flex items-start gap-3 text-primary-foreground/70">
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="flex items-start gap-3 text-primary-foreground/70"
+              >
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70" />
                 <span>{contactInfo.address}</span>
-              </li>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="flex items-start gap-3 text-primary-foreground/70"
+              >
+                <Clock className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70" />
+                <span>{contactInfo.hours}</span>
+              </motion.li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-foreground/60 text-sm text-center md:text-left">
-            © {new Date().getFullYear()} Delhi Public School Hyderabad. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {footerLinks.legal.map((link) => (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="text-primary-foreground/60 hover:text-secondary text-sm transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className="pt-8 border-t border-primary-foreground/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-primary-foreground/60 text-sm text-center md:text-left flex items-center gap-2">
+              © {new Date().getFullYear()} Delhi Public School Hyderabad. Made with 
+              <Heart className="w-4 h-4 text-red-400 fill-red-400" /> 
+              for Education
+            </p>
+            <div className="flex items-center gap-6">
+              {footerLinks.legal.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-primary-foreground/60 hover:text-secondary text-sm transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -153,12 +296,14 @@ export const Footer = () => {
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        whileHover={{ scale: 1.1 }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.1, y: -3 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-secondary text-secondary-foreground shadow-gold flex items-center justify-center z-50 hover:shadow-lg transition-shadow"
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-2xl bg-gradient-gold text-secondary-foreground shadow-gold flex items-center justify-center z-50 hover:shadow-lg transition-shadow"
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-6 h-6" />
       </motion.button>
     </footer>
   );
