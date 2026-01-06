@@ -71,20 +71,39 @@ export const AchievementsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-padding relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding relative overflow-hidden bg-muted/30">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/5 to-background" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="eyebrow mb-3 block" data-aos="fade-up">Our Pride</span>
-          <h2 className="heading-1 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <motion.span 
+            className="eyebrow mb-3 block text-secondary font-semibold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Our Pride
+          </motion.span>
+          <motion.h2 
+            className="heading-1 mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
             Celebrating <span className="text-gradient-gold">Excellence</span>
-          </h2>
-          <p className="body-lg text-muted-foreground" data-aos="fade-up" data-aos-delay="200">
+          </motion.h2>
+          <motion.p 
+            className="body-lg text-muted-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
             Our students consistently achieve remarkable success in academics, sports, and extracurricular activities, making us proud year after year.
-          </p>
+          </motion.p>
         </div>
 
         {/* Achievement Cards */}

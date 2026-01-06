@@ -81,25 +81,25 @@ export const WelcomeSection = () => {
 
             <h2 className="welcome-animate display-2 text-foreground mb-4">
               Welcome to{' '}
-              <span className="text-gradient-gold">DPS Hyderabad</span>
+              <span className="text-gradient-gold">APEX</span>
             </h2>
 
             <div className="welcome-animate text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
-              23 Years of DPS Hyderabad
+              The School of Excellence
             </div>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p className="welcome-animate">
-                The year 2025 will go down in the annals of DPS Hyderabad as a significant year for it celebrates 23 years of being the epitome of excellence in the field of academics, sports and extracurricular activities since its inception in 2002.
+                APEX - The School of Excellence stands as a beacon of quality education, nurturing young minds to become future leaders. Our commitment to academic excellence, combined with holistic development, makes us a premier educational institution.
               </p>
               <p className="welcome-animate">
-                It is indeed a proud moment not only for the visionaries of the institution but also the staff and students. The esteemed parent body too is an integral part of this trajectory and their continued encouragement and involvement will surely ensure both personal goals for our Dipsites and also school goals for the institution in years to come.
+                With state-of-the-art infrastructure, dedicated faculty, and a curriculum designed for 21st-century learners, we provide an environment where every student can discover their potential and achieve their dreams.
               </p>
               <p className="welcome-animate">
-                The success and achievements of DPS Hyderabad's alumni, gaining admission into prestigious universities in India and across the world is a fitting tribute to an organization that has withstood the test of time, delivering brilliant results year after year both at secondary and senior secondary level under the competent leadership of founder principal and now academic director of the school Ms Rekha Aggarwala and present principal Mrs. Sandhya Prathap.
+                Our alumni have excelled in prestigious universities across India and the world, a testament to our unwavering commitment to quality education and character building.
               </p>
               <p className="welcome-animate font-medium text-foreground">
-                The past twenty three years are but humble seeds sown for a promising journey ahead as the school looks forward to the celebration of its Silver Jubilee in the near future with its commitment to innovative growth.
+                At APEX, we believe in shaping not just students, but future leaders who will make a positive impact on the world.
               </p>
             </div>
 

@@ -104,8 +104,10 @@ export const HeroSection = () => {
             alt={currentSlideData.title}
             className="w-full h-full object-cover scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-dps-green-dark/95 via-dps-green/75 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-dps-green-dark/60 via-transparent to-transparent" />
+          {/* Dark overlay for text visibility */}
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
@@ -164,7 +166,7 @@ export const HeroSection = () => {
 
               {/* Subtitle */}
               <p className="hero-text-animate body-lg text-primary-foreground/90 mb-8 max-w-2xl">
-                {currentSlideData.subtitle}. Join us in shaping tomorrow's innovators, thinkers, and leaders at Delhi Public School, Hyderabad.
+                {currentSlideData.subtitle}. Join us in shaping tomorrow's innovators, thinkers, and leaders at APEX - The School of Excellence.
               </p>
             </motion.div>
           </AnimatePresence>
