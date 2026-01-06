@@ -7,6 +7,7 @@ import {
 import { footerLinks, socialLinks, contactInfo } from '@/config/navigation';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import apexLogo from '@/assets/apex-logo.jpg';
 
 const socialIconMap: Record<string, React.ReactNode> = {
   Facebook: <Facebook className="w-5 h-5" />,
@@ -29,16 +30,16 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-dps-green-dark via-primary to-dps-green-dark text-primary-foreground overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-apex-black via-apex-black-light to-apex-black text-primary-foreground overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-40 right-20 w-96 h-96 bg-dps-teal/5 rounded-full blur-3xl"
+          className="absolute bottom-40 right-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
           animate={{ scale: [1, 0.8, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 10, repeat: Infinity }}
         />
@@ -76,7 +77,7 @@ export const Footer = () => {
       {/* Newsletter Section */}
       <div className="container mx-auto px-4 pt-32 pb-12">
         <motion.div
-          className="relative bg-gradient-to-r from-secondary/20 to-dps-gold/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-16 border border-secondary/20"
+          className="relative bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 mb-16 border border-primary/20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -84,7 +85,7 @@ export const Footer = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-heading font-bold mb-3">
-                Stay Updated with <span className="text-secondary">DPS Hyderabad</span>
+                Stay Updated with <span className="text-secondary">APEX School</span>
               </h3>
               <p className="text-primary-foreground/70">
                 Subscribe to our newsletter for latest news, events, and announcements.
@@ -116,23 +117,14 @@ export const Footer = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="relative">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center text-secondary-foreground font-heading font-bold text-2xl shadow-gold">
-                  DPS
-                </div>
-                <motion.div
-                  className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-2xl">Delhi Public School</h3>
-                <p className="text-primary-foreground/70">Hyderabad</p>
-              </div>
+              <img 
+                src={apexLogo} 
+                alt="APEX School Logo" 
+                className="h-16 object-contain bg-white rounded-lg p-2"
+              />
             </motion.div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed max-w-md">
-              Nurturing future leaders through academic excellence, holistic development, and a commitment to values that inspire lifelong learning. Celebrating 23 years of educational excellence.
+              Ignite. Inspire. Achieve. The APEX Way. Nurturing future leaders through academic excellence, holistic development, and a commitment to values that inspire lifelong learning.
             </p>
             
             {/* Social Links */}
@@ -149,7 +141,7 @@ export const Footer = () => {
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-all border border-white/10 hover:border-secondary"
+                  className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all border border-white/10 hover:border-primary"
                   aria-label={social.label}
                 >
                   {socialIconMap[social.icon]}
@@ -177,7 +169,7 @@ export const Footer = () => {
                     to={link.href}
                     className="text-primary-foreground/70 hover:text-secondary transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary/50 group-hover:bg-secondary transition-colors" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
                     {link.label}
                   </Link>
                 </motion.li>
@@ -189,7 +181,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold text-lg mb-6 flex items-center gap-2">
               <Award className="w-5 h-5 text-secondary" />
-              Resources
+              Academics
             </h4>
             <ul className="space-y-3">
               {footerLinks.resources.map((link, index) => (
@@ -204,7 +196,7 @@ export const Footer = () => {
                     to={link.href}
                     className="text-primary-foreground/70 hover:text-secondary transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary/50 group-hover:bg-secondary transition-colors" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
                     {link.label}
                   </Link>
                 </motion.li>
@@ -228,7 +220,7 @@ export const Footer = () => {
                   href={`tel:${contactInfo.phone}`}
                   className="flex items-start gap-3 text-primary-foreground/70 hover:text-secondary transition-colors group"
                 >
-                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70 group-hover:text-secondary" />
+                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary/70 group-hover:text-primary" />
                   <span>{contactInfo.phone}</span>
                 </a>
               </motion.li>
@@ -242,7 +234,7 @@ export const Footer = () => {
                   href={`mailto:${contactInfo.email}`}
                   className="flex items-start gap-3 text-primary-foreground/70 hover:text-secondary transition-colors group"
                 >
-                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70 group-hover:text-secondary" />
+                  <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary/70 group-hover:text-primary" />
                   <span>{contactInfo.email}</span>
                 </a>
               </motion.li>
@@ -253,7 +245,7 @@ export const Footer = () => {
                 transition={{ delay: 0.2 }}
                 className="flex items-start gap-3 text-primary-foreground/70"
               >
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70" />
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary/70" />
                 <span>{contactInfo.address}</span>
               </motion.li>
               <motion.li
@@ -263,7 +255,7 @@ export const Footer = () => {
                 transition={{ delay: 0.3 }}
                 className="flex items-start gap-3 text-primary-foreground/70"
               >
-                <Clock className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary/70" />
+                <Clock className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary/70" />
                 <span>{contactInfo.hours}</span>
               </motion.li>
             </ul>
@@ -274,8 +266,8 @@ export const Footer = () => {
         <div className="pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/60 text-sm text-center md:text-left flex items-center gap-2">
-              © {new Date().getFullYear()} Delhi Public School Hyderabad. Made with 
-              <Heart className="w-4 h-4 text-red-400 fill-red-400" /> 
+              © {new Date().getFullYear()} APEX - The School of Excellence. Made with 
+              <Heart className="w-4 h-4 text-primary fill-primary" /> 
               for Education
             </p>
             <div className="flex items-center gap-6">
@@ -300,7 +292,7 @@ export const Footer = () => {
         animate={{ opacity: 1, scale: 1 }}
         whileHover={{ scale: 1.1, y: -3 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 w-14 h-14 rounded-2xl bg-gradient-gold text-secondary-foreground shadow-gold flex items-center justify-center z-50 hover:shadow-lg transition-shadow"
+        className="fixed bottom-6 right-6 w-14 h-14 rounded-2xl bg-primary text-primary-foreground shadow-glow flex items-center justify-center z-50 hover:shadow-lg transition-shadow"
         aria-label="Scroll to top"
       >
         <ArrowUp className="w-6 h-6" />

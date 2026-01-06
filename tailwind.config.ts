@@ -57,21 +57,26 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        dps: {
-          green: {
-            DEFAULT: "hsl(var(--dps-green))",
-            light: "hsl(var(--dps-green-light))",
-            dark: "hsl(var(--dps-green-dark))",
+        apex: {
+          red: {
+            DEFAULT: "hsl(var(--apex-red))",
+            light: "hsl(var(--apex-red-light))",
+            dark: "hsl(var(--apex-red-dark))",
           },
           gold: {
-            DEFAULT: "hsl(var(--dps-gold))",
-            light: "hsl(var(--dps-gold-light))",
-            dark: "hsl(var(--dps-gold-dark))",
+            DEFAULT: "hsl(var(--apex-gold))",
+            light: "hsl(var(--apex-gold-light))",
+            dark: "hsl(var(--apex-gold-dark))",
           },
-          blue: "hsl(var(--dps-blue))",
-          teal: "hsl(var(--dps-teal))",
-          orange: "hsl(var(--dps-orange))",
-          red: "hsl(var(--dps-red))",
+          blue: {
+            DEFAULT: "hsl(var(--apex-blue))",
+            light: "hsl(var(--apex-blue-light))",
+            dark: "hsl(var(--apex-blue-dark))",
+          },
+          black: {
+            DEFAULT: "hsl(var(--apex-black))",
+            light: "hsl(var(--apex-black-light))",
+          },
         },
       },
       fontFamily: {
@@ -93,6 +98,7 @@ export default {
         lg: "var(--shadow-lg)",
         glow: "var(--shadow-glow)",
         gold: "var(--shadow-gold)",
+        blue: "var(--shadow-blue)",
       },
       keyframes: {
         "accordion-down": {
@@ -132,8 +138,8 @@ export default {
           "50%": { transform: "translateY(-15px) rotate(5deg)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--dps-green) / 0.4)" },
-          "50%": { boxShadow: "0 0 40px hsl(var(--dps-green) / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--apex-red) / 0.4)" },
+          "50%": { boxShadow: "0 0 40px hsl(var(--apex-red) / 0.6)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
@@ -172,6 +178,7 @@ export default {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-primary": "var(--gradient-primary)",
         "gradient-gold": "var(--gradient-gold)",
+        "gradient-blue": "var(--gradient-blue)",
         "gradient-hero": "var(--gradient-hero)",
         "gradient-glass": "var(--gradient-glass)",
         "gradient-dark": "var(--gradient-dark)",

@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown, Home, Building, BookOpen, UserPlus, Users, Buildi
 import { navigationConfig, contactInfo, type NavItem } from '@/config/navigation';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import apexLogo from '@/assets/apex-logo.jpg';
 
 const iconMap: Record<string, React.ReactNode> = {
   Home: <Home className="w-4 h-4" />,
@@ -49,7 +50,7 @@ export const Header = () => {
   return (
     <>
       {/* Top Info Bar */}
-      <div className="bg-primary text-primary-foreground py-2 hidden lg:block">
+      <div className="bg-apex-black text-primary-foreground py-2 hidden lg:block">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
             <a href={`tel:${contactInfo.phone}`} className="flex items-center gap-2 hover:text-secondary transition-colors">
@@ -81,13 +82,11 @@ export const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-heading font-bold text-xl shadow-glow group-hover:scale-110 transition-transform">
-                DPS
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="font-heading font-bold text-lg text-foreground leading-tight">Delhi Public School</h1>
-                <p className="text-xs text-muted-foreground">Hyderabad</p>
-              </div>
+              <img 
+                src={apexLogo} 
+                alt="APEX School Logo" 
+                className="h-14 md:h-16 object-contain"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -190,10 +189,11 @@ export const Header = () => {
               <div className="p-6">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center text-primary-foreground font-heading font-bold">
-                      DPS
-                    </div>
-                    <span className="font-heading font-bold text-foreground">DPS Hyderabad</span>
+                    <img 
+                      src={apexLogo} 
+                      alt="APEX School Logo" 
+                      className="h-10 object-contain"
+                    />
                   </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
